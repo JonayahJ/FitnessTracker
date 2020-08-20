@@ -44,6 +44,23 @@
   <script src="/api.js"></script>
   <script src="/workout.js"></script>
   <script src="/index.js"></script>
+  
+  <!-- Object Store -->
+  <script>
+    const request = window.indexedDB.open("");
+
+    request.onupgradeneeded = ({target}) => {
+      const db = target.result;
+
+      const objectStore = db.createObjectStore("");
+      objectStore.createIndex("Timestamp", "timestamp", { unique: true });
+    }
+
+    request.onsuccess = event => {
+      console.log(request, result);
+    };
+
+  </script>
 </body>
 
 </html>
