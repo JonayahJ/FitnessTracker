@@ -29,12 +29,10 @@ const workoutSchema = new Schema(
       reps: {
         type: Number,
       },
-    
       // if cardio
       distance: {
         type: Number,
       }
-      
     }
   ]
 }
