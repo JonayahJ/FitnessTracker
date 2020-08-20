@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
 
-const db = require("");
+// const db = require("");
 
 const app = express();
 
@@ -15,10 +15,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", {useNewURLParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {useNewURLParser: true});
 
-// there are many exercises to one user
-// db.User.create
+// routes
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 app.listen(PORT => {
     console.log(`App running on port ${PORT}!`);
